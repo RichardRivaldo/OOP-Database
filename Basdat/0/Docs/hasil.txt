@@ -1,0 +1,38 @@
+MariaDB [nation]> select * from continents;
++--------------+---------------+
+| continent_id | name          |
++--------------+---------------+
+|            1 | North America |
+|            2 | Asia          |
+|            3 | Africa        |
+|            4 | Europe        |
+|            5 | South America |
+|            6 | Oceania       |
+|            7 | Antarctica    |
++--------------+---------------+
+7 rows in set (0.000 sec)
+
+
+MariaDB [nation]> select name from countries where area > 10000000;
++--------------------+
+| name               |
++--------------------+
+| Antarctica         |
+| Russian Federation |
++--------------------+
+2 rows in set (0.000 sec)
+
+
+MariaDB [nation]> select C.name from countries as C, languages as L, country_languages as cl
+    -> where L.language = 'Malay' and cl.language_id = L.language_id and C.country_id = cl.country_id;
++-------------------------+
+| name                    |
++-------------------------+
+| Brunei                  |
+| Cocos (Keeling) Islands |
+| Indonesia               |
+| Malaysia                |
+| Singapore               |
+| Thailand                |
++-------------------------+
+6 rows in set (0.002 sec)
